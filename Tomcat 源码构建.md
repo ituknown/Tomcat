@@ -1,20 +1,12 @@
-| **说明** |
-| :--- |
-| 构建 Tomcat 源码不需要 Maven！不需要 Maven！！！
-
-
-网上一大堆配置 Maven、配置 Catalina_Home 全是扯淡！！官网给的构建步骤 “狠” 清晰！！！！ |
-
+> **说明：** 构建 Tomcat 源码不需要 Maven！不需要 Maven！！！网上一大堆配置 Maven、配置 Catalina_Home 全是扯淡！！官网给的构建步骤真的 “狠” 清晰！！！！
 
 # 安装 Ant
 
 **Tomcat 是一个 Ant 项目，所以我们仅仅需要下载一个 Ant 就能运行了，就类似于 Maven 项目一样一样的！！！！**
 
-
 在 Ant 官网页面下载 Ant 安装包二进制文件（[https://ant.apache.org/bindownload.cgi](https://ant.apache.org/bindownload.cgi)）：
 
-
-![1-ant-website-16427677532hDggN](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/1-ant-website-16427677532hDggN.png)
+![1-ant-website-1642774130fpS9re](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/1-ant-website-1642774130fpS9re.png)
 
 这里我选择的是 1.10.11 版本：
 
@@ -64,7 +56,7 @@ git clone https://github.com/apache/tomcat.git
 ![2-tomcat-github-1642767766Wv31Km](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/2-tomcat-github-1642767766Wv31Km.png)
 
 
-**2. 去 Tomcat 官网([https://tomcat.apache.org](https://tomcat.apache.org/download-80.cgi))下载指定版本的源码，比如 8.5 版本：**
+**2. 去 Tomcat 官网（[https://tomcat.apache.org](https://tomcat.apache.org/download-80.cgi)）下载指定版本的源码，比如 8.5 版本：**
 
 ![3-tomcat-website-1642767806wrtRet](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/3-tomcat-website-1642767806wrtRet.png)
 
