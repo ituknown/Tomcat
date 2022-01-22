@@ -209,7 +209,7 @@ $ ant ide-netbeans-replace
 
 | **小提示** |
 | :--- |
-| 这个依赖一般会自动识别，自动识别一般如下图：![7-idea-project-structure-dependencies-normal-1642767865Nog3Al](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/7-idea-project-structure-dependencies-normal-1642767865Nog3Al.png) |
+| <br/>这个依赖一般会自动识别。当我们导入 IDEA 后在右下角通常会有一个路径地址变量未定义提示：<br/><br/>![7-fix-variables-undefines-1642826050xC8Mtt](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/7-fix-variables-undefines-1642826050xC8Mtt.png)<br/><br/>我们只需要点击 **FIX it** 然后在弹窗里手动修改下变量即可：<br/><br/>![7-config-path-variables-1642826020dNOewi](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/7-config-path-variables-1642826020dNOewi.png)<br/><br/>一般来说重启后就正常了（如果不能正确识别那只能手动导入了）：<br/><br/>![7-idea-project-structure-dependencies-normal-1642767865Nog3Al](http://tomcat-media.knowledge.ituknown.cn/TomcatSourceCodeBuild/7-idea-project-structure-dependencies-normal-1642767865Nog3Al.png) |
 
 
 # 运行源码
