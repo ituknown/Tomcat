@@ -6,7 +6,7 @@
 
 在 Ant 官网页面下载 Ant 安装包二进制文件（[https://ant.apache.org/bindownload.cgi](https://ant.apache.org/bindownload.cgi)）：
 
-![1-ant-website-1642774130fpS9re](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/1-ant-website-1642774130fpS9re.png)
+![1-ant-website-1642774130fpS9re](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/1-ant-website-1642774130fpS9re.png)
 
 这里我选择的是 1.10.11 版本：
 
@@ -42,24 +42,21 @@ Apache Ant(TM) version 1.10.11 compiled on July 10 2021
 
 编译工具好了，就开始捣鼓源码：
 
-
 # 获取 Tomcat 源码
 
 构建 Tomcat 首先我们需要有 Tomcat 源码，获取 Tomcat 源码的方式有两种：
-
 
 **1. 直接去 Tomcat Github 仓库克隆（推荐）：**
 
 ```git
 git clone https://github.com/apache/tomcat.git
 ```
-![2-tomcat-github-1642767766Wv31Km](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/2-tomcat-github-1642767766Wv31Km.png)
 
+![2-tomcat-github-1642767766Wv31Km](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/2-tomcat-github-1642767766Wv31Km.png)
 
 **2. 去 Tomcat 官网（[https://tomcat.apache.org](https://tomcat.apache.org/download-80.cgi)）下载指定版本的源码，比如 8.5 版本：**
 
-![3-tomcat-website-1642767806wrtRet](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/3-tomcat-website-1642767806wrtRet.png)
-
+![3-tomcat-website-1642767806wrtRet](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/3-tomcat-website-1642767806wrtRet.png)
 
 # 构建源码
 
@@ -83,18 +80,17 @@ LICENSE                  RELEASE-NOTES            build.properties.default modul
 
 在 Tomcat 源码根目录下有一个 build.properties.default 文件，这个文件就是 ant 构建 tomcat 源码的配置，不要做修改！！！！我们需要做的是新建一个 build.properties 文件，进行覆盖默认的配置内容。
 
-
 ## 步骤1：创建 `build.properties` 配置文件
 
-在源码根目录创建一个 `build.properties`  文件，并在文件中增加如下配置：
+在源码根目录创建一个 `build.properties` 文件，并在文件中增加如下配置：
 
 ```properties
 # Tomcat 依赖包下载目录
 base.path=${user.home}/tomcat-build-libs
 ```
 
-Tomcat 源码在构建时会下载所需的依赖包（如 maven），`base.path` 指的就是依赖包下载目录。默认会下载到用户的根目录
-（即 `${user.home}`），推荐为 Ant 设置一个依赖存储仓库，如 Maven Repository。
+Tomcat 源码在构建时会下载所需的依赖包（如 maven）， `base.path` 指的就是依赖包下载目录。默认会下载到用户的根目录
+（即 `${user.home}` ），推荐为 Ant 设置一个依赖存储仓库，如 Maven Repository。
 
 示例：
 
@@ -122,7 +118,6 @@ proxy.port=7890
 proxy.user=
 proxy.password=
 ```
-
 
 ## 步骤2：执行构建命令
 
@@ -154,8 +149,7 @@ compile:
 
 有关 Tomcat 与 JDK 版本关系见：[https://tomcat.apache.org/whichversion.html](https://tomcat.apache.org/whichversion.html)（如下图）
 
-![4-tomcat-versions-1642767830k456ha](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/4-tomcat-versions-1642767830k456ha.png)
-
+![4-tomcat-versions-1642767830k456ha](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/4-tomcat-versions-1642767830k456ha.png)
 
 ## 步骤3：导入到 IDEA
 
@@ -189,17 +183,17 @@ $ ant ide-netbeans-replace
 
 之后打开 IDE 导入即可（下面是 IDEA 的示例）。
 
-导入完成后直接运行 `org.apache.catalina.startup.Bootstrap#main` 方法，`org.apache.catalina.startup.Bootstrap` 是 Tomcat 的启动类，所以如果能直接运行成功就表示 Tocmat 运行成功！！！！
+导入完成后直接运行 `org.apache.catalina.startup.Bootstrap#main` 方法， `org.apache.catalina.startup.Bootstrap` 是 Tomcat 的启动类，所以如果能直接运行成功就表示 Tocmat 运行成功！！！！
 
 如果在运行时提示某个依赖包不存在的问题主要是依赖没导入，示例：
 
-![5-import-idea-1642767843PmZNwi](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/5-import-idea-1642767843PmZNwi.png)
+![5-import-idea-1642767843PmZNwi](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/5-import-idea-1642767843PmZNwi.png)
 
 我们要做的是打开 Project Structure 导入依赖：
 
-![6-idea-project-structure-dependencies-1642767853gBZG5W](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/6-idea-project-structure-dependencies-1642767853gBZG5W.png)
+![6-idea-project-structure-dependencies-1642767853gBZG5W](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/6-idea-project-structure-dependencies-1642767853gBZG5W.png)
 
-注意看这个依赖，我们之前已经配置过 `ANT_HOME`，按理说应该会自动识别才对，但是 `$ANT_HOME$/lib/ant.jar` 没有识别。
+注意看这个依赖，我们之前已经配置过 `ANT_HOME` ，按理说应该会自动识别才对，但是 `$ANT_HOME$/lib/ant.jar` 没有识别。
 
 另外下面的 `$TOMCAT_BUILD_LIBS$` 几个依赖包就是在编译时设置的依赖下载目录，同样的没有自动识别。
 
@@ -209,47 +203,49 @@ $ ant ide-netbeans-replace
 
 | **小提示** |
 | :--- |
-| <br/>这个依赖一般会自动识别。当我们导入 IDEA 后在右下角通常会有一个路径地址变量未定义提示：<br/><br/>![7-fix-variables-undefines-1642826050xC8Mtt](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/7-fix-variables-undefines-1642826050xC8Mtt.png)<br/><br/>我们只需要点击 **FIX it** 然后在弹窗里手动修改下变量即可：<br/><br/>![7-config-path-variables-1642826020dNOewi](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/7-config-path-variables-1642826020dNOewi.png)<br/><br/>一般来说重启后就正常了（如果不能正确识别那只能手动导入了）：<br/><br/>![7-idea-project-structure-dependencies-normal-1642767865Nog3Al](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/7-idea-project-structure-dependencies-normal-1642767865Nog3Al.png) |
+| <br/>这个依赖一般会自动识别。当我们导入 IDEA 后在右下角通常会有一个路径地址变量未定义提示：<br/><br/>
 
+![7-fix-variables-undefines-1642826050xC8Mtt](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/7-fix-variables-undefines-1642826050xC8Mtt.png)<br/><br/>我们只需要点击 **FIX it** 然后在弹窗里手动修改下变量即可：<br/><br/>![7-config-path-variables-1642826020dNOewi](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/7-config-path-variables-1642826020dNOewi.png)<br/><br/>一般来说重启后就正常了（如果不能正确识别那只能手动导入了）：<br/><br/>![7-idea-project-structure-dependencies-normal-1642767865Nog3Al](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/7-idea-project-structure-dependencies-normal-1642767865Nog3Al.png)
+
+ |
 
 # 运行源码
 
 上面的配置都做完之后一般来说就可以直接运行了，如果还不能直接运行就只能去 Google 了~
 
-运行启动类 `org.apache.catalina.startup.Bootstrap#main`，如下：
+运行启动类 `org.apache.catalina.startup.Bootstrap#main` ，如下：
 
-![8-run-tomcat-1642767909eZTPGE](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/8-run-tomcat-1642767909eZTPGE.png)
+![8-run-tomcat-1642767909eZTPGE](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/8-run-tomcat-1642767909eZTPGE.png)
 
 你会看到上面有错误信息提示 ClassNotFoundException，不用管它，这是 web.xml 配置的问题。
 
 直接使用浏览器访问 127.0.0.1:8080，好家伙你又会看到下面这个错误：
 
-![9-tomcat-page500-1642767918hU9f3k](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/9-tomcat-page500-1642767918hU9f3k.png)
+![9-tomcat-page500-1642767918hU9f3k](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/9-tomcat-page500-1642767918hU9f3k.png)
 
-这个原因是因为我们直接启动 `org.apache.catalina.startup.Bootstrap` 的时候没有加载 `org.apache.jasper.servlet.JasperInitializer`，从而无法编译JSP。
+这个原因是因为我们直接启动 `org.apache.catalina.startup.Bootstrap` 的时候没有加载 `org.apache.jasper.servlet.JasperInitializer` ，从而无法编译JSP。
 
 比较奇怪，我使用Tomcat8.5 时有这个问题，但是在 Tomcat6/7 是没有这个问题的。
 
-解决办法是：找到 `org.apache.catalina.startup.ContextConfig#configureStart` 方法，在下面加上`context.addServletContainerInitializer(new JasperInitializer(),null)` 即可。
+解决办法是：找到 `org.apache.catalina.startup.ContextConfig#configureStart` 方法，在下面加上 `context.addServletContainerInitializer(new JasperInitializer(),null)` 即可。
 
-![10-tomcat-page500-fix-16427679282WHlLQ](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/10-tomcat-page500-fix-16427679282WHlLQ.png)
+![10-tomcat-page500-fix-16427679282WHlLQ](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/10-tomcat-page500-fix-16427679282WHlLQ.png)
 
 再次重启访问 127.0.0.1:8080 就没问题了~
 
-![11-tomcat-gui-1642767948ZWU1s7](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/11-tomcat-gui-1642767948ZWU1s7.png)
-
+![11-tomcat-gui-1642767948ZWU1s7](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/11-tomcat-gui-1642767948ZWU1s7.png)
 
 # Tomcat GUI 用户及角色配置
 
 其实到这里 Tomcat 源码就构建成功了，不过如果想要测试 Web GUI 管理界面的话还需要做些用户配置。比如现在你直接点击 Manager App 就要求你输入用户密码：
 
-![12-tomcat-gui-login-1642767961IbwG9k](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/12-tomcat-gui-login-1642767961IbwG9k.png)
+![12-tomcat-gui-login-1642767961IbwG9k](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/12-tomcat-gui-login-1642767961IbwG9k.png)
 
 那这个用户从哪里来的呢？
 
 找到 conf 目录下的 tomcat-users.xml 文件：
 
-![13-tomcat-users-1642767974puMsFA](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/13-tomcat-users-1642767974puMsFA.png)
+![13-tomcat-users-1642767974puMsFA](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/13-tomcat-users-1642767974puMsFA.png)
 
 用户就是在这个 xml 文件中配置的，文件中有许多示例。另外上面还定义了四个角色，如 manager-gui。我们先不管角色，直接在 xml 中增加一个用户（角色为空）：
 
@@ -259,7 +255,7 @@ $ ant ide-netbeans-replace
 
 重启再次访问，现在输入用户密码后又提示错误信息：
 
-![14-tomcat-gui-user-tip-1642767990vorWmy](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/14-tomcat-gui-user-tip-1642767990vorWmy.png)
+![14-tomcat-gui-user-tip-1642767990vorWmy](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/14-tomcat-gui-user-tip-1642767990vorWmy.png)
 
 看下这个提示信息，还给你了配置用户示例并告诉你需要什么角色（manager-gui），所以想要使用 Manager App 功能就需要给用户增加 manager-gui 权限，添加即可：
 
@@ -269,11 +265,11 @@ $ ant ide-netbeans-replace
 
 要是我还想要使用 Host Manager 功能怎么吧？
 
-![15-tomcat-hostmanager-gui-1642768002hx0QaQ](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/15-tomcat-hostmanager-gui-1642768002hx0QaQ.png)
+![15-tomcat-hostmanager-gui-1642768002hx0QaQ](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/15-tomcat-hostmanager-gui-1642768002hx0QaQ.png)
 
 直接点击即可，输入用户密码后又会给你提示：
 
-![16-tomcat-hostmanager-gui-user-tip-1642768014u4P2uC](https://ituknown.org/tomcat-media/TomcatSourceCodeBuild/16-tomcat-hostmanager-gui-user-tip-1642768014u4P2uC.png)
+![16-tomcat-hostmanager-gui-user-tip-1642768014u4P2uC](https://media.ituknown.org/tomcat-media/TomcatSourceCodeBuild/16-tomcat-hostmanager-gui-user-tip-1642768014u4P2uC.png)
 
 并告诉你需要 admin-gui 角色，添加即可：
 
@@ -283,9 +279,7 @@ $ ant ide-netbeans-replace
 
 现在你懂了吗？想要使用某个功能，又不知道角色该怎么办？先点击再说~
 
-
 ---
-
 
 到此，Tomcat 源码就构建完成了，之后就可以开始学习了。
 
